@@ -3,14 +3,18 @@ import { db } from '../services/storage'
 import CardDoacao from '../components/CardDoacao'
 import DadosExemplo from '../components/DadosExemplo'
 
+const tipos = ['Todos', 'Frutas e verduras', 'Padaria', 'Refeições prontas', 'Não perecíveis', 'Bebidas']
+
 export default function ListaDoacoes() {
   const [busca, setBusca] = useState('')
   const [status, setStatus] = useState('disponivel')
+  const [tipo, setTipo] = useState('Todos')
 
   const doacoes = db.doacoes()
     .filter((d) =>
       d.status === status &&
-      d.alimento.toLowerCase().includes(busca.toLowerCase())
+      d.alimento.toLowerCase().includes(busca.toLowerCase()) &&
+      (tipo === 'Todos' || d.tipo === tipo)
     )
     .sort((a, b) => (a.validade || '').localeCompare(b.validade || ''))
 
@@ -33,6 +37,15 @@ export default function ListaDoacoes() {
           <option value="disponivel">Disponíveis</option>
           <option value="reservada">Reservadas</option>
           <option value="coletada">Coletadas</option>
+        </select>
+        <select
+          value={tipo}
+          onChange={(e) => setTipo(e.target.value)}
+          className="border border-gray-300 rounded-lg px-3 py-2"
+        >
+          {tipos.map((t) => (
+            <option key={t} value={t}>{t}</option>
+          ))}
         </select>
       </div>
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
