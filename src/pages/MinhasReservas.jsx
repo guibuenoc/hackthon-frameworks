@@ -5,8 +5,10 @@ export default function MinhasReservas() {
   const reservadas = db.doacoes().filter((d) => d.status === 'reservada')
 
   const coletar = (id) => {
-    db.coletarDoacao(id)
-    window.location.reload()
+    if (window.confirm('Confirma que a doação foi coletada?')) {
+      db.coletarDoacao(id)
+      window.location.reload()
+    }
   }
 
   return (
@@ -17,7 +19,7 @@ export default function MinhasReservas() {
           <p className="text-gray-500">Nenhuma reserva ainda.</p>
         )}
         {reservadas.map((d) => (
-          <div key={d.id} className="bg-white p-5 rounded-xl shadow flex justify-between items-center">
+          <div key={d.id} className="bg-white p-5 rounded-xl shadow flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
             <div>
               <h3 className="font-bold text-green-800">{d.alimento}</h3>
               <p className="text-gray-600">{d.quantidade}, retirada às {d.retirada}</p>
