@@ -28,8 +28,8 @@ export default function DetalheDoacao() {
         <p className="mt-2 text-sm text-gray-500">Status: {doacao.status}</p>
         {doacao.status === 'disponivel' && (
           <div className="mt-4">
-            <Botao cor="bg-green-700" tipo="button">
-              <span onClick={reservar}>Reservar doação</span>
+            <Botao cor="bg-green-700" tipo="button" aoClicar={reservar}>
+              Reservar doação
             </Botao>
           </div>
         )}

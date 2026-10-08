@@ -1,4 +1,10 @@
-const ler = (chave) => JSON.parse(localStorage.getItem(chave)) || []
+const ler = (chave) => {
+  try {
+    return JSON.parse(localStorage.getItem(chave)) || []
+  } catch {
+    return []
+  }
+}
 const salvar = (chave, dados) => localStorage.setItem(chave, JSON.stringify(dados))
 
 export const db = {

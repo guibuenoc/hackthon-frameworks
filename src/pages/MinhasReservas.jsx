@@ -24,8 +24,8 @@ export default function MinhasReservas() {
               <h3 className="font-bold text-green-800">{d.alimento}</h3>
               <p className="text-gray-600">{d.quantidade}, retirada às {d.retirada}</p>
             </div>
-            <Botao cor="bg-blue-600" tipo="button">
-              <span onClick={() => coletar(d.id)}>Marcar como coletada</span>
+            <Botao cor="bg-blue-600" tipo="button" aoClicar={() => coletar(d.id)}>
+              Marcar como coletada
             </Botao>
           </div>
         ))}
