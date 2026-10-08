@@ -4,10 +4,11 @@
 ODS 2 (Fome Zero) e ODS 12 (Consumo Responsável)
 
 ## Problema
-[preencher]
+O desperdício de alimentos de um lado enquanto há pessoas e entidades enfrentando insegurança alimentar de outro. Alimentos perfeitamente consumíveis de restaurantes, padarias, mercados e eventos acabam indo para o lixo por falta de um canal direto e simples de doação.
 
 ## Público-alvo
-[preencher]
+* **Doadores:** Restaurantes, padarias, mercados e pessoas comuns com sobras de eventos.
+* **Coletores:** ONGs, cozinhas comunitárias, igrejas e famílias em situação de vulnerabilidade.
 
 ## Proposta de Valor
 [preencher]
