@@ -1,16 +1,50 @@
-# React + Vite
+# Conecta Sobras
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## ODS
+ODS 2 (Fome Zero) e ODS 12 (Consumo Responsável)
 
-Currently, two official plugins are available:
+## Problema
+[preencher]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Público-alvo
+[preencher]
 
-## React Compiler
+## Proposta de Valor
+[preencher]
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Benchmarking
+[preencher com Too Good To Go, Olio, Food Rescue Hero, Mesa Brasil Sesc, Banco Alimentar]
 
-## Expanding the Oxlint configuration
+## Requisitos
+[preencher RF01 a RF10 e RNF01 a RNF10]
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## User Stories
+[preencher]
+
+## Funcionalidades
+[preencher]
+
+## Tecnologias Utilizadas
+React, Vite, Tailwind CSS, React Router
+
+## Framework Utilizado
+React
+
+## Como Executar
+npm install
+npm run dev
+
+## Protótipo
+[link do Figma]
+
+## Aplicação
+[link do deploy]
+
+## Processo de Desenvolvimento
+[preencher]
+
+## Integrantes
+[preencher]
+
+## Inteligência Artificial
+[preencher ferramentas e etapas]
