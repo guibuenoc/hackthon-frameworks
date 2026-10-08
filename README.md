@@ -90,8 +90,7 @@ Projeto organizado em branches main, develop e feature, com integrações perió
 
 ## Inteligência Artificial
 Ferramenta: ONE (Adapta)
-Utilização:
-- geração de ideias e definição do projeto;
-- estruturação das rotas, componentes e páginas;
-- criação dos requisitos e user stories;
-- orientação no fluxo de Git e branches.
+
+Etapas onde a IA foi utilizada:
+- Arquitetura: definição das rotas, páginas, componentes e do armazenamento local.
+- Código: geração e revisão dos componentes React com Tailwind CSS.

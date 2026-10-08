@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom'
+import { db } from '../services/storage'
 
 export default function Home() {
+  const doacoes = db.doacoes()
+  const disponiveis = doacoes.filter((d) => d.status === 'disponivel').length
+  const coletadas = doacoes.filter((d) => d.status === 'coletada')
+  const totalKg = coletadas.reduce((soma, d) => soma + (Number(d.quantidade) || 0), 0)
+
   return (
     <div className="max-w-4xl mx-auto p-8">
       <section className="text-center mt-10">
@@ -15,20 +21,35 @@ export default function Home() {
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/nova-doacao"
-            className="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800"
+            className="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 text-center"
           >
             Quero doar
           </Link>
           <Link
             to="/doacoes"
-            className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-green-50"
+            className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 text-center"
           >
             Preciso receber
           </Link>
         </div>
       </section>
 
-      <section className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+        <div className="bg-white p-6 rounded-xl shadow">
+          <p className="text-3xl font-bold text-green-700">{disponiveis}</p>
+          <p className="text-gray-600 mt-1">Doações disponíveis</p>
+        </div>
+        <div className="bg-white p-6 rounded-xl shadow">
+          <p className="text-3xl font-bold text-green-700">{totalKg} kg</p>
+          <p className="text-gray-600 mt-1">Comida salva</p>
+        </div>
+        <div className="bg-white p-6 rounded-xl shadow">
+          <p className="text-3xl font-bold text-green-700">{Math.round(totalKg * 2)}</p>
+          <p className="text-gray-600 mt-1">Refeições geradas</p>
+        </div>
+      </section>
+
+      <section className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-white p-6 rounded-xl shadow">
           <h3 className="font-bold text-green-800">ODS 2: Fome Zero</h3>
           <p className="mt-2 text-gray-600">
@@ -39,12 +60,6 @@ export default function Home() {
           <h3 className="font-bold text-green-800">ODS 12: Consumo Responsável</h3>
           <p className="mt-2 text-gray-600">
             Menos desperdício, mais aproveitamento do que já foi produzido.
-          </p>
-        </div>
-        <div className="bg-white p-6 rounded-xl shadow">
-          <h3 className="font-bold text-green-800">Impacto real</h3>
-          <p className="mt-2 text-gray-600">
-            Cada quilo salvo equivale a cerca de 2 refeições completas.
           </p>
         </div>
       </section>
