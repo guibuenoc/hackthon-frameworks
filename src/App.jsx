@@ -8,6 +8,7 @@ import DetalheDoacao from './pages/DetalheDoacao'
 import MinhasReservas from './pages/MinhasReservas'
 import PainelImpacto from './pages/PainelImpacto'
 import Historico from './pages/Historico'
+import Footer from './components/Footer'
 
 export default function App() {
   return (
@@ -22,7 +23,9 @@ export default function App() {
         <Route path="/reservas" element={<MinhasReservas />} />
         <Route path="/impacto" element={<PainelImpacto />} />
         <Route path="/historico" element={<Historico />} />
+        <Route path="*" element={<NaoEncontrada />} />
       </Routes>
+      <Footer />
     </div>
   )
 }
