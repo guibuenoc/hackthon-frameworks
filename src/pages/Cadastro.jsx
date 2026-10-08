@@ -11,10 +11,23 @@ export default function Cadastro() {
 
     const mudar = (campo) => (e) => setForm({ ...form, [campo]: e.target.value })
 
+    const mudarTelefone = (e) => {
+        let v = e.target.value.replace(/\D/g, '')
+        if (v.length > 11) v = v.slice(0, 11)
+        if (v.length > 6) {
+            v = `(${v.slice(0, 2)}) ${v.slice(2, v.length - 4)}-${v.slice(v.length - 4)}`
+        } else if (v.length > 2) {
+            v = `(${v.slice(0, 2)}) ${v.slice(2)}`
+        } else if (v.length > 0) {
+            v = `(${v}`
+        }
+        setForm({ ...form, telefone: v })
+    }
+
     const enviar = (e) => {
         e.preventDefault()
         if (form.telefone && !validaTelefone(form.telefone)) {
-            setErro('Telefone inválido. Use DDD + número, ex: 11999999999')
+            setErro('Telefone inválido. Use DDD + número.')
             return
         }
         setErro('')
@@ -31,9 +44,7 @@ export default function Cadastro() {
                     Cadastro realizado com sucesso!
                 </p>
             )}
-            {erro && (
-                <p className="mt-4 bg-red-100 text-red-700 p-3 rounded-lg">{erro}</p>
-            )}
+            {erro && <p className="mt-4 bg-red-100 text-red-700 p-3 rounded-lg">{erro}</p>}
             <form onSubmit={enviar} className="mt-6 bg-white p-6 rounded-xl shadow">
                 <FormCampo label="Nome" valor={form.nome} aoMudar={mudar('nome')} />
                 <div className="mb-4">
@@ -48,7 +59,7 @@ export default function Cadastro() {
                     </select>
                 </div>
                 <FormCampo label="E-mail" tipo="email" valor={form.email} aoMudar={mudar('email')} />
-                <FormCampo label="Telefone" valor={form.telefone} aoMudar={mudar('telefone')} obrigatorio={false} />
+                <FormCampo label="Telefone" valor={form.telefone} aoMudar={mudarTelefone} obrigatorio={false} />
                 <Botao>Cadastrar</Botao>
             </form>
         </div>
