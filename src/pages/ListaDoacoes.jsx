@@ -7,10 +7,12 @@ export default function ListaDoacoes() {
   const [busca, setBusca] = useState('')
   const [status, setStatus] = useState('disponivel')
 
-  const doacoes = db.doacoes().filter((d) =>
-    d.status === status &&
-    d.alimento.toLowerCase().includes(busca.toLowerCase())
-  )
+  const doacoes = db.doacoes()
+    .filter((d) =>
+      d.status === status &&
+      d.alimento.toLowerCase().includes(busca.toLowerCase())
+    )
+    .sort((a, b) => (a.validade || '').localeCompare(b.validade || ''))
 
   return (
     <div className="max-w-4xl mx-auto p-8">
