@@ -2,15 +2,22 @@ import { useState } from 'react'
 import { db } from '../services/storage'
 import FormCampo from '../components/FormCampo'
 import Botao from '../components/Botao'
+import validaTelefone from '../components/ValidaTelefone'
 
 export default function Cadastro() {
     const [form, setForm] = useState({ nome: '', tipo: 'doador', email: '', telefone: '' })
     const [salvo, setSalvo] = useState(false)
+    const [erro, setErro] = useState('')
 
     const mudar = (campo) => (e) => setForm({ ...form, [campo]: e.target.value })
 
     const enviar = (e) => {
         e.preventDefault()
+        if (form.telefone && !validaTelefone(form.telefone)) {
+            setErro('Telefone inválido. Use DDD + número, ex: 11999999999')
+            return
+        }
+        setErro('')
         db.salvarUsuario(form)
         setSalvo(true)
         setForm({ nome: '', tipo: 'doador', email: '', telefone: '' })
@@ -23,6 +30,9 @@ export default function Cadastro() {
                 <p className="mt-4 bg-green-100 text-green-800 p-3 rounded-lg">
                     Cadastro realizado com sucesso!
                 </p>
+            )}
+            {erro && (
+                <p className="mt-4 bg-red-100 text-red-700 p-3 rounded-lg">{erro}</p>
             )}
             <form onSubmit={enviar} className="mt-6 bg-white p-6 rounded-xl shadow">
                 <FormCampo label="Nome" valor={form.nome} aoMudar={mudar('nome')} />

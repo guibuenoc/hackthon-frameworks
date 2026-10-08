@@ -20,7 +20,8 @@ export default function DetalheDoacao() {
     <div className="max-w-lg mx-auto p-8">
       <div className="bg-white p-6 rounded-xl shadow">
         <h1 className="text-2xl font-bold text-green-800">{doacao.alimento}</h1>
-        <p className="mt-2 text-gray-600">Quantidade: {doacao.quantidade}</p>
+        <p className="mt-2 text-gray-600">Tipo: {doacao.tipo}</p>
+        <p className="text-gray-600">Quantidade: {doacao.quantidade}</p>
         <p className="text-gray-600">Validade: {doacao.validade}</p>
         <p className="text-gray-600">Retirada: {doacao.retirada}</p>
         <p className="text-gray-600">Doador: {doacao.doador}</p>
@@ -31,6 +32,11 @@ export default function DetalheDoacao() {
               <span onClick={reservar}>Reservar doação</span>
             </Botao>
           </div>
+        )}
+        {doacao.status === 'reservada' && (
+          <p className="mt-4 bg-yellow-100 text-yellow-800 p-3 rounded-lg">
+            Essa doação já foi reservada por outro coletor.
+          </p>
         )}
       </div>
     </div>
