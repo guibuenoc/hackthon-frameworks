@@ -76,6 +76,9 @@ React
 npm install
 npm run dev
 
+## Publicar na Vercel
+Importe o repositório na Vercel mantendo esta pasta como diretório raiz do projeto. A configuração em `vercel.json` compila o app e publica a pasta `dist`. Depois do primeiro deploy, a Vercel fará novas publicações a cada atualização da branch conectada.
+
 ## Protótipo
 [link do Figma]
 
