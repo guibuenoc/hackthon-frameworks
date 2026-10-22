@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
+import Navbar from './components/NavBar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Cadastro from './pages/Cadastro'
@@ -9,7 +9,7 @@ import DetalheDoacao from './pages/DetalheDoacao'
 import MinhasReservas from './pages/MinhasReservas'
 import PainelImpacto from './pages/PainelImpacto'
 import Historico from './pages/Historico'
-import NaoEncontrada from './pages/Naoencontrada'
+import NaoEncontrada from './pages/NaoEncontrada'
 
 export default function App() {
   return (
